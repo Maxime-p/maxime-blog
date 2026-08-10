@@ -1,63 +1,32 @@
-# Astro Starter Kit: Blog
+# Maxime-p.dev
 
-```sh
-pnpm create astro@latest -- --template blog
-```
+Maxime-p.dev is a personal, English-language site about the JavaScript development ecosystem. It combines original writing with a lightweight, curated reading list of external news and resources.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Site sections
 
-Features:
+- **Home** previews the latest three blog posts and latest three news items, with clear calls to action for the rest of the site.
+- **Blog** publishes original articles written by Maxime; each article has its own page.
+- **News** curates external resources. Each entry links directly to its source in a new browser tab.
+- **About** provides a short personal introduction.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## Technology
 
-## 🚀 Project Structure
+- Astro 7 with the Cloudflare adapter
+- Tailwind CSS 4
+- Markdown and MDX content collections
+- Sitemap, RSS, and image optimization through Astro integrations
 
-Inside of your Astro project, you'll see the following folders and files:
+## Local development
 
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+Requires Node.js 22.12.0 or later and pnpm.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+| Command | Purpose |
+| --- | --- |
+| `pnpm install` | Install dependencies. |
+| `pnpm dev` | Start the local development server. |
+| `pnpm build` | Create the production build. |
+| `pnpm preview` | Preview the production build locally. |
+| `pnpm generate-types` | Generate Cloudflare Worker types. |
+| `pnpm astro -- --help` | Show Astro CLI help. |
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+For product terminology and agent-facing implementation rules, see [AGENTS.md](./AGENTS.md) and [CONTEXT.md](./CONTEXT.md).
