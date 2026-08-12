@@ -1,8 +1,18 @@
 ---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const latestBlogPosts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+const latestNewsItems = (await getCollection('news'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
 ---
 
 <!doctype html>
@@ -13,36 +23,40 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<h1>Maxime-p.dev</h1>
+			<p>Original writing and curated resources for the JavaScript development ecosystem.</p>
+
+			<section aria-labelledby="latest-blog-posts">
+				<h2 id="latest-blog-posts">Latest blog posts</h2>
+				<ul>
+					{latestBlogPosts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>
+								{post.data.heroImage && <Image src={post.data.heroImage} alt="" width={320} />}
+								<h3>{post.data.title}</h3>
+								<FormattedDate date={post.data.pubDate} />
+							</a>
+						</li>
+					))}
+				</ul>
+				<p><a href="/blog">View all blog posts</a></p>
+			</section>
+
+			<section aria-labelledby="latest-news-items">
+				<h2 id="latest-news-items">Latest news</h2>
+				<ul>
+					{latestNewsItems.map((item) => (
+						<li>
+							<a href={item.data.destinationUrl} target="_blank" rel="noreferrer">
+								<img src={item.data.thumbnailUrl} alt="" width="320" height="160" />
+								<h3>{item.data.title}</h3>
+								<FormattedDate date={item.data.pubDate} />
+							</a>
+						</li>
+					))}
+				</ul>
+				<p><a href="/news">View all news</a></p>
+			</section>
 		</main>
 		<Footer />
 	</body>
