@@ -1,2 +1,3 @@
 export const SITE_TITLE = 'Maxime-p.dev';
-export const SITE_DESCRIPTION = 'Small blog and news website about web development, programming technologies.';
+export const SITE_DESCRIPTION =
+	'Original writing and curated JavaScript development resources from Maxime.';
