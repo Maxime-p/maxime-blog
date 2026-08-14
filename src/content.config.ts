@@ -21,8 +21,6 @@ const news = defineCollection({
 	loader: glob({ base: './src/content/news', pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
 		title: z.string(),
-		description: z.string(),
-		pubDate: z.coerce.date(),
 		thumbnailUrl: z.url(),
 		destinationUrl: z.url(),
 	}),
