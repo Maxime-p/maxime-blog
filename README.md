@@ -1,12 +1,12 @@
 # Maxime-p.dev
 
-Maxime-p.dev is a personal, English-language site about the JavaScript development ecosystem. It combines original writing with a lightweight, curated reading list of external news and resources.
+Maxime-p.dev is a personal, English-language site about the JavaScript development ecosystem. It combines articles written by Maxime with a lightweight, curated reading list of external news and resources.
 
 ## Site sections
 
 - **Home** previews the latest three blog posts and latest three news items, with clear calls to action for the rest of the site.
-- **Blog** publishes original articles written by Maxime; each article has its own page.
-- **News** curates external resources. Each entry links directly to its source in a new browser tab.
+- **Blog** publishes articles written by Maxime; each article has its own page.
+- **News** curates external resources by source publication date. Each entry links directly to its source in a new browser tab and may include freely authored News Tags.
 - **About** provides a short personal introduction.
 
 ## Technology

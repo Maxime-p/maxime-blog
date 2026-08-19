@@ -7,8 +7,8 @@ Maxime-p.dev is a personal English-language blog and curated news site for the J
 The site has four primary destinations:
 
 - **Home** previews the three newest Blog Posts and three newest News Items, then links clearly to Blog, News, and About.
-- **Blog** contains original articles written by Maxime. Each Blog Post has an internal detail page.
-- **News** is a manually curated list of external resources. A News Item has no internal detail page: its title and thumbnail open its Destination URL in a new tab.
+- **Blog** contains articles written by Maxime. Each Blog Post has an internal detail page.
+- **News** is a curated list of external resources ordered by Source Publication Date. A News Item has no internal detail page: its title and thumbnail open its Destination URL in a new tab. News Tags are optional labels written directly on News Items and listed dynamically by reference count.
 - **About** is a short personal profile. Keep missing biographical details as explicit placeholders or request them; do not invent personal facts.
 
 ## Interface

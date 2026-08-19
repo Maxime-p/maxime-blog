@@ -1,22 +1,24 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-function orderNewsItems(items: CollectionEntry<'news'>[]) {
-	// Numeric file-name prefixes are the editor-controlled News Item order.
-	return [...items].sort((first, second) =>
-		first.id.localeCompare(second.id, undefined, { numeric: true }),
+export async function getNewsItems() {
+	return (await getCollection('news')).sort(
+		(first, second) =>
+			second.data.sourcePubDate.valueOf() - first.data.sourcePubDate.valueOf() ||
+			first.id.localeCompare(second.id, undefined, { numeric: true }),
 	);
 }
 
-export async function getNewsItems() {
-	return orderNewsItems(await getCollection('news'));
-}
+export function getNewsTags(items: CollectionEntry<'news'>[]) {
+	const counts = new Map<string, number>();
 
-export async function getLatestNewsItems(limit = 3) {
-	return (await getNewsItems()).slice(0, limit);
-}
+	for (const item of items) {
+		for (const tag of new Set(item.data.tags)) {
+			counts.set(tag, (counts.get(tag) ?? 0) + 1);
+		}
+	}
 
-export async function getLatestBlogPosts(limit = 3) {
-	return (await getCollection('blog'))
-		.sort((first, second) => second.data.pubDate.valueOf() - first.data.pubDate.valueOf())
-		.slice(0, limit);
+	return [...counts].sort(
+		([firstTag, firstCount], [secondTag, secondCount]) =>
+			secondCount - firstCount || firstTag.localeCompare(secondTag),
+	);
 }
