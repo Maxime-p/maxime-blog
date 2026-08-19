@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE } from '../consts';
+import { GITHUB_URL, LINKEDIN_URL, SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
@@ -13,7 +13,7 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
 		<div class="flex items-center gap-1">
-			<a class="rounded-md p-2 text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://linkedin.com/in/Maxime-p" target="_blank" rel="noreferrer">
+			<a class="rounded-md p-2 text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href={LINKEDIN_URL} target="_blank" rel="noreferrer">
 				<span class="sr-only">Go to my LinkedIn profile</span>
 				<svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32"
 					><path
@@ -22,7 +22,7 @@ import HeaderLink from './HeaderLink.astro';
 					></path></svg
 				>
 			</a>
-			<a class="rounded-md p-2 text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://github.com/Maxime-p" target="_blank" rel="noreferrer">
+			<a class="rounded-md p-2 text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href={GITHUB_URL} target="_blank" rel="noreferrer">
 				<span class="sr-only">Go to my GitHub profile</span>
 				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
 					><path
