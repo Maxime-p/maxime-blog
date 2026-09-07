@@ -11,6 +11,10 @@ The site has four primary destinations:
 - **News** is a curated list of external resources ordered by Source Publication Date. A News Item has no internal detail page: its title and thumbnail open its Destination URL in a new tab. News Tags are optional labels written directly on News Items and listed dynamically by reference count.
 - **About** is a short personal profile. Keep missing biographical details as explicit placeholders or request them; do not invent personal facts.
 
+## News curation
+
+For each News Item, use the source publication's header or Open Graph image as `thumbnailUrl`. Prefer the `og:image` URL exposed by the Destination URL; use the publisher's official fallback image only when no header or `og:image` is available.
+
 ## Interface
 
 Build accessible Astro components with Tailwind utilities and simple, shadcn-inspired primitives: clear hierarchy, consistent tokens, useful focus states, and responsive layouts. Keep the site lightweight; do not add React merely to use shadcn/ui.
