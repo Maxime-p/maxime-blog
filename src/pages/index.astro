@@ -62,8 +62,9 @@ const latestNewsItems = (await getNewsItems()).slice(0, 3);
 								<li><a class="group block h-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600" href={item.data.destinationUrl} target="_blank" rel="noreferrer">
 									<img class="aspect-video w-full object-cover" src={item.data.thumbnailUrl} alt="" width="480" height="270" />
 									<div class="p-5">
+										<p class="text-sm text-slate-500"><FormattedDate date={item.data.sourcePubDate} /></p>
 									{item.data.tags.length > 0 && (
-										<div class="mb-3 flex flex-wrap gap-2">
+										<div class="mb-3 mt-3 flex flex-wrap gap-2">
 											{item.data.tags.map((tag) => (
 												<span class="text-xs font-semibold uppercase tracking-wide text-indigo-700">{tag}</span>
 											))}

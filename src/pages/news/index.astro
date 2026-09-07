@@ -1,6 +1,7 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
 import { getNewsItems, getNewsTags } from '../../lib/publications';
@@ -40,8 +41,9 @@ const newsTags = getNewsTags(newsItems);
 									<a class="group block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600" href={item.data.destinationUrl} target="_blank" rel="noreferrer">
 										<img class="aspect-video w-full object-cover" src={item.data.thumbnailUrl} alt="" width="720" height="360" />
 										<div class="p-5">
+											<p class="text-sm text-slate-500"><FormattedDate date={item.data.sourcePubDate} /></p>
 										{item.data.tags.length > 0 && (
-											<div class="mb-3 flex flex-wrap gap-2">
+											<div class="mb-3 mt-3 flex flex-wrap gap-2">
 												{item.data.tags.map((tag) => (
 													<span class="text-xs font-semibold uppercase tracking-wide text-indigo-700">{tag}</span>
 												))}
