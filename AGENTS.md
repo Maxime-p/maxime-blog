@@ -8,12 +8,22 @@ The site has four primary destinations:
 
 - **Home** previews the three newest Blog Posts and three newest News Items, then links clearly to Blog, News, and About.
 - **Blog** contains articles written by Maxime. Each Blog Post has an internal detail page.
-- **News** is a curated list of external resources ordered by Source Publication Date. A News Item has no internal detail page: its title and thumbnail open its Destination URL in a new tab. News Tags are optional labels written directly on News Items and listed dynamically by reference count.
+- **News** is a curated list of external resources ordered by Source Publication Date. A News Item has no internal detail page: its title and thumbnail open its Destination URL in a new tab. Every item has one News Resource Type written directly in its frontmatter; resource types are listed dynamically by reference count.
 - **About** is a short personal profile. Keep missing biographical details as explicit placeholders or request them; do not invent personal facts.
 
 ## News curation
 
-For each News Item, use the source publication's header or Open Graph image as `thumbnailUrl`. Prefer the `og:image` URL exposed by the Destination URL; use the publisher's official fallback image only when no header or `og:image` is available.
+For each News Item, use the source publication's header or Open Graph image as `thumbnailUrl`. Prefer the `og:image` URL exposed by the Destination URL; use the publisher's official fallback image only when no header or `og:image` is available. If the source embeds a relevant YouTube video and its official video thumbnail better represents the resource than the page image, use `https://i.ytimg.com/vi/<video-id>/maxresdefault.jpg` after confirming it is available; otherwise use the source's header, Open Graph image, or official fallback image.
+
+Use one `resourceType` per News Item from: `AI Model`, `Framework`, `Runtime`, `Library`, `Language`, `Tool`, or `Platform`. Do not add tags: they do not provide enough useful, independent filtering value for this publication. Start new entries from this frontmatter shape:
+
+```yaml
+title: 'Example resource'
+sourcePubDate: '2026-09-12'
+thumbnailUrl: 'https://publisher.example/og-image.png'
+destinationUrl: 'https://publisher.example/resource'
+resourceType: Tool
+```
 
 ## Interface
 

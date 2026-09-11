@@ -24,7 +24,7 @@ const news = defineCollection({
 		sourcePubDate: z.coerce.date(),
 		thumbnailUrl: z.url(),
 		destinationUrl: z.url(),
-		tags: z.array(z.string()).default([]),
+		resourceType: z.string().min(1),
 	}),
 });
 

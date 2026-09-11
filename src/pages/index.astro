@@ -59,20 +59,17 @@ const latestNewsItems = (await getNewsItems()).slice(0, 3);
 					) : (
 						<ul class="mt-8 grid gap-6 md:grid-cols-3">
 							{latestNewsItems.map((item) => (
-								<li><a class="group block h-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600" href={item.data.destinationUrl} target="_blank" rel="noreferrer">
+								<li class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+									<a class="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600" href={item.data.destinationUrl} target="_blank" rel="noreferrer">
 									<img class="aspect-video w-full object-cover" src={item.data.thumbnailUrl} alt="" width="480" height="270" />
+									</a>
 									<div class="p-5">
 										<p class="text-sm text-slate-500"><FormattedDate date={item.data.sourcePubDate} /></p>
-									{item.data.tags.length > 0 && (
-										<div class="mb-3 mt-3 flex flex-wrap gap-2">
-											{item.data.tags.map((tag) => (
-												<span class="text-xs font-semibold uppercase tracking-wide text-indigo-700">{tag}</span>
-											))}
-										</div>
-									)}
-										<h3 class="text-xl font-semibold text-slate-950 group-hover:text-indigo-700">{item.data.title}</h3><p class="mt-3 text-sm font-medium text-indigo-700">Read the source <span aria-hidden="true">↗</span></p>
+									<a class="mb-3 mt-3 inline-block text-xs font-semibold uppercase tracking-wide text-slate-600 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href={`/news#type=${encodeURIComponent(item.data.resourceType)}`}>{item.data.resourceType}</a>
+										<h3><a class="text-xl font-semibold text-slate-950 hover:text-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href={item.data.destinationUrl} target="_blank" rel="noreferrer">{item.data.title}</a></h3>
+										<a class="mt-3 inline-block text-sm font-medium text-indigo-700 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href={item.data.destinationUrl} target="_blank" rel="noreferrer">Read the source <span aria-hidden="true">↗</span></a>
 									</div>
-								</a></li>
+								</li>
 							))}
 						</ul>
 					)

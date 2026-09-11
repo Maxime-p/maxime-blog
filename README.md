@@ -6,7 +6,7 @@ Maxime-p.dev is a personal, English-language site about the JavaScript developme
 
 - **Home** previews the latest three blog posts and latest three news items, with clear calls to action for the rest of the site.
 - **Blog** publishes articles written by Maxime; each article has its own page.
-- **News** curates external resources by source publication date. Each entry links directly to its source in a new browser tab and may include freely authored News Tags.
+- **News** curates external resources by source publication date. Each entry links directly to its source in a new browser tab and has one resource type.
 - **About** provides a short personal introduction.
 
 ## Technology
@@ -30,3 +30,11 @@ Requires Node.js 22.12.0 or later and pnpm.
 | `pnpm astro -- --help` | Show Astro CLI help. |
 
 For product terminology and agent-facing implementation rules, see [AGENTS.md](./AGENTS.md) and [CONTEXT.md](./CONTEXT.md).
+
+## News resource types
+
+Every News Item declares exactly one `resourceType`: `AI Model`, `Framework`, `Runtime`, `Library`, `Language`, `Tool`, or `Platform`. Resource type is the sole News filter; do not add tags.
+
+```yaml
+resourceType: Framework
+```

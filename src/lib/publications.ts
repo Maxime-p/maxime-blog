@@ -8,17 +8,15 @@ export async function getNewsItems() {
 	);
 }
 
-export function getNewsTags(items: CollectionEntry<'news'>[]) {
+export function getNewsResourceTypes(items: CollectionEntry<'news'>[]) {
 	const counts = new Map<string, number>();
 
 	for (const item of items) {
-		for (const tag of new Set(item.data.tags)) {
-			counts.set(tag, (counts.get(tag) ?? 0) + 1);
-		}
+		counts.set(item.data.resourceType, (counts.get(item.data.resourceType) ?? 0) + 1);
 	}
 
 	return [...counts].sort(
-		([firstTag, firstCount], [secondTag, secondCount]) =>
-			secondCount - firstCount || firstTag.localeCompare(secondTag),
+		([firstType, firstCount], [secondType, secondCount]) =>
+			secondCount - firstCount || firstType.localeCompare(secondType),
 	);
 }
